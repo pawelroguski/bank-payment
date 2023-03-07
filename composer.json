@@ -1,0 +1,14 @@
+{
+  "name": "Bank account and payment",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Paweł Roguski",
+      "email": "kontakt@pawelroguski.pl"
+    }
+  ]
+}
