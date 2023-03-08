@@ -17,8 +17,19 @@ class TransactionValidator implements TransactionValidatorInterface
     private const MESSAGE_NOT_ENOUGH_BALANCE = 'Account balance is too low!';
     private const MESSAGE_UNKNOWN_ERROR = 'Unknown error occurred!';
 
+    /**
+     * @var string|null
+     */
     private ?string $error;
+
+    /**
+     * @var TransactionInterface
+     */
     private TransactionInterface $transaction;
+
+    /**
+     * @var BankAccountInterface
+     */
     private BankAccountInterface $account;
 
     /**
@@ -41,6 +52,9 @@ class TransactionValidator implements TransactionValidatorInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
     public function isValid(): bool
     {
         $this->error = self::MESSAGE_UNKNOWN_ERROR;
@@ -102,6 +116,9 @@ class TransactionValidator implements TransactionValidatorInterface
         return true;
     }
 
+    /**
+     * @return bool
+     */
     private function isSameCurrency(): bool
     {
         if ($this->account->getCurrency() !== $this->transaction->getCurrency()) {
@@ -111,6 +128,9 @@ class TransactionValidator implements TransactionValidatorInterface
         return true;
     }
 
+    /**
+     * @return bool
+     */
     private function isDailyDebitLimitReached(): bool
     {
         return $this->account->getDailyDebitCounter() >= BankAccount::DAILY_DEBIT_LIMIT;

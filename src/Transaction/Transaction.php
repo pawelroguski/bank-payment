@@ -6,6 +6,12 @@ namespace App\Transaction;
 class Transaction implements TransactionInterface
 {
     public const DEBIT_TRANSACTION_FEE = 1.005;
+
+    /**
+     * @param TransactionType $transactionType
+     * @param float $amount
+     * @param string $currency
+     */
     public function __construct(
         private readonly TransactionType $transactionType,
         private readonly float           $amount,

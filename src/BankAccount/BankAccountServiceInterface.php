@@ -5,7 +5,14 @@ namespace App\BankAccount;
 
 interface BankAccountServiceInterface
 {
+    /**
+     * @return void
+     */
     public function addCredit(): void;
+
+    /**
+     * @return void
+     */
     public function addDebit(): void;
 
 }

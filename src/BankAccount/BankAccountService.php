@@ -10,6 +10,11 @@ use Exception;
 
 class BankAccountService implements BankAccountServiceInterface
 {
+    /**
+     * @param TransactionInterface $transaction
+     * @param BankAccountInterface $account
+     * @param TransactionValidatorInterface $transactionValidator
+     */
     public function __construct(
         private readonly TransactionInterface $transaction,
         private readonly BankAccountInterface $account,
@@ -23,6 +28,7 @@ class BankAccountService implements BankAccountServiceInterface
     }
 
     /**
+     * @return void
      * @throws Exception
      */
     public function addCredit(): void
@@ -35,6 +41,7 @@ class BankAccountService implements BankAccountServiceInterface
     }
 
     /**
+     * @return void
      * @throws Exception
      */
     public function addDebit(): void
